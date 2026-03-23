@@ -351,9 +351,9 @@ class SUPPORT(nn.Module):
         return x
 
 
-class QFLIM(nn.Module):
+class EFLIM(nn.Module):
     """
-    QFLIM network for fluorescence lifetime inference under extreme low light.
+    EFLIM network for fluorescence lifetime inference under extreme low light.
         
     This model is derived from the SUPPORT network, with modifications
     to its input layer.
@@ -362,7 +362,7 @@ class QFLIM(nn.Module):
     def __init__(self, in_channels, mid_channels=[16, 32, 64, 128, 256], depth=5,\
          blind_conv_channels=64, one_by_one_channels=[32, 16],\
             last_layer_channels=[64, 32, 16], bs_size=1, bp=False):
-        super(QFLIM, self).__init__()
+        super(EFLIM, self).__init__()
 
         # check arguments
         if len(mid_channels) < 2:

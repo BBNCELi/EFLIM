@@ -1,11 +1,11 @@
-# QFLIM
-> A self-supervised, quantum-aware deep learning method for FLIM under extreme low light.
+# EFLIM
+> A self-supervised, event-based deep learning method for FLIM under extreme low light.
 
 ## Introduction
-QFLIM (Quantum-Aware First-Photon FLIM) is a self-supervised deep learning method for fluorescence lifetime imaging microscopy (FLIM). Unlike conventional approaches that rely on photon histograms, QFLIM treats each excitation event as a quantum binary process — either no photon is emitted, or a single first-arrival photon is detected with precise timing. By leveraging spatial and temporal context, QFLIM achieves accurate lifetime estimation under extremely low-light conditions, reducing photon demand by over three orders of magnitude. This enables fast, high-fidelity intravital imaging with strong robustness to intensity fluctuations. QFLIM opens new opportunities for studying dynamic biological processes in deep tissue.
+EFLIM (Event-Based First-Photon FLIM) is a self-supervised deep learning method for fluorescence lifetime imaging microscopy (FLIM). Unlike conventional approaches that rely on photon histograms, EFLIM treats each excitation event as a binary process — either no photon is emitted, or a single first-arrival photon is detected with precise timing. By leveraging spatial and temporal context, EFLIM estimates lifetime under extremely low-light conditions (PPP<1), reducing photon demand by about three orders of magnitude. This enables fast, high-fidelity intravital imaging with strong robustness to intensity fluctuations. EFLIM opens new opportunities for studying dynamic biological processes in deep tissue.
 
 ## Overview
-- **Quantum-aware representation**: avoids histogram construction and directly models each excitation event.  
+- **Event-based representation**: avoids histogram construction and directly models each excitation event.  
 - **Self-supervised learning**: robust training without the need for paired datasets or ground-truth lifetimes.  
 - **Extreme low light capability**: accurate lifetime estimation even below 1 photon per pixel (PPP).
 - **Robustness to artifacts**: stable performance despite photobleaching, motion, or intensity fluctuations.  
@@ -40,7 +40,7 @@ Inside this folder, you will find:
 
 
 ### 2. Python training and inference
-Once the dataset is prepared, you can train and evaluate QFLIM using the provided Python code.
+Once the dataset is prepared, you can train and evaluate EFLIM using the provided Python code.
 
 #### Requirements
 - **Python ≥ 3.9**  
@@ -54,12 +54,12 @@ Once the dataset is prepared, you can train and evaluate QFLIM using the provide
 
 ### Create a new conda environment (recommended):
 ```bash
-conda create -n qflim python=3.10 -y
-conda activate qflim
+conda create -n eflim python=3.10 -y
+conda activate eflim
 ```
 
 ### GPU support
-To run QFLIM efficiently on a GPU, make sure you have a working CUDA toolkit installed.
+To run EFLIM efficiently on a GPU, make sure you have a working CUDA toolkit installed.
 The recommended way is to install PyTorch together with the matching CUDA version directly from the [official PyTorch website](https://pytorch.org/get-started/locally/).
 
 For example, on a machine with **CUDA 11.8**, you can install PyTorch with:
@@ -74,14 +74,14 @@ pip install -r requirements.txt
 
 ### Training example:
 ```bash
-python run_QFLIM.py \
+python run_EFLIM.py \
   --folderName .//simu_USAF1951_PPP0.5//raw
 ```
 
 If you want to train on a specific GPU (e.g., GPU 2):
 ```bash
 CUDA_VISIBLE_DEVICES=2 \
-python run_QFLIM.py \
+python run_EFLIM.py \
   --folderName .//simu_USAF1951_PPP0.5//raw
 ```
 

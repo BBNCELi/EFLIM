@@ -1,4 +1,4 @@
-# requirements.txt for QFLIM
+# requirements.txt for EFLIM
 # Note: Install PyTorch separately according to your CUDA / OS:
 # https://pytorch.org/get-started/locally/
 

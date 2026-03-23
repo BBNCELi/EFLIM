@@ -7,7 +7,7 @@ from tqdm import tqdm
 from utils import *
 
 COEF = 1000 # for precision
-OMEGA = 1 / 2000 # for QFLIM phasor plots. 2000 ps will be located at (0.5,0.5)
+OMEGA = 1 / 2000 # for EFLIM phasor plots. 2000 ps will be located at (0.5,0.5)
 
 def raw2features(
     frameList,                 # raw data frames
@@ -51,7 +51,7 @@ def computeLoss(
 
     if feature in ['lifetime', 'cosine', 'sine']:
         '''
-        Loss for QFLIM
+        Loss for EFLIM
 
         Each photon is weighted equally to compute loss
 
