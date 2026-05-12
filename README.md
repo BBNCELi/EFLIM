@@ -19,7 +19,7 @@ EFLIM (Event-Based First-Photon FLIM) is a self-supervised deep learning method 
 - For **PicoQuant** systems: convert `.PTU` files into `.tif` format.  
 - We recommend using **at least 500 frames** with **PPP > 0.1** in regions of interest.  
 
-### 1.1. (Optional) Simulation (if raw data are unavailable)
+### 1.1. Simulation (if raw data are unavailable)
 If you do not have experimental raw data, you can generate synthetic photon arrivals using the provided MATLAB scripts.  
 
 Example:  
@@ -38,6 +38,30 @@ Inside this folder, you will find:
 - **FastFLIM** (center-of-mass method, CMM):  ./simu_USAF1951_PPP0.5/lt_fastflim/lt_fastflim.tif
 - **Intensity-weighted lifetime visualizations**, saved with the default [colormap](https://uigradients.com/) suffix `_weddingdayblues` (e.g., ./simu_USAF1951_PPP0.5/lt_fastflim/lt_fastflim_lt500-3500_in0-0.5_weddingdayblue.tif)
 
+### 1.2. Experimental dataset
+We provide a representative raw SPC dataset (Becker&Hickl, HPM-100-07, SPC-QC-104) for reproducibility and testing purposes.
+
+The raw SPC file can be downloaded from:
+```
+https://drive.google.com/file/d/1cnEcXbqJvVVJ8ZdCexfEFmzAmhLR2nbM/view?usp=drive_link
+```
+
+After downloading, place the .SPC file into:
+```
+./spc2tiff/ExampleData/
+```
+
+Then run the MATLAB script:
+```
+./spc2tiff/spc2tiff.m
+```
+
+This script converts the raw SPC photon stream into a sequence of TIFF frames that can be directly used for EFLIM training and inference.
+
+The converted TIFF files will be saved to:
+```
+./spc2tiff/output/
+```
 
 ### 2. Python training and inference
 Once the dataset is prepared, you can train and evaluate EFLIM using the provided Python code.
